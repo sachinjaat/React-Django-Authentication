@@ -17,10 +17,7 @@ import dj_database_url
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BBASE_DIR = Path(__file__).resolve().root.root
-
-# TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
+BASE_DIR = Path(__file__).resolve().root.root
 
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
@@ -159,8 +156,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-django_heroku.settings(locals())
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -172,10 +167,6 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# If you want to serve user uploaded files add these settings
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'build', 'media')
 
 # Add these at the very last line of settings.py
 options = DATABASES['default'].get('OPTIONS', {})
